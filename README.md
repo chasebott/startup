@@ -28,6 +28,7 @@ Open up terminal and...
 
 ### Chromebook
 Powerwash and set up account.
+
 Install linux (Debian 9) via settings menu.
 
 run `sudo apt install php-fpm php` to install PHP
