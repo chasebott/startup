@@ -9,10 +9,15 @@ Startup instructions for automated builds.
 ### Mac OSX
 Powerwash
 > Restart Mac and hold `cmd R` on startup
+> 
 > Open "Disk Utility" and click `Continue`
+> 
 > Select "Mac HD" and click `Unmount`
+> 
 > Select "Mac HD" and click `Erase`
+> 
 > `Quit` "Disk Utility"
+> 
 > Open "Reinstall OSX"
 
 Setup Apple ID and General Settings.
@@ -28,5 +33,7 @@ Install linux (Debian 9) via settings menu.
 run `sudo apt install php-fpm php` to install PHP
 
 > install deployer
+> 
 > git clone startup (this repo) -b OperatingSystem
+> 
 > run `dep startup`
