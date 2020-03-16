@@ -6,9 +6,11 @@ localhost()
 
 $dependencies = 
     array(
+	'homebrew' => 'brew',
+	'iterm' => '/Applications/iTerm.app',
         'sublime-text' => 'subl',
         'docker' => 'docker',
-        'docker-compose' => 'docker-compose' 
+        'docker-compose' => 'docker-compose'
     );
 
 set('dependencies',$dependencies);
@@ -19,6 +21,7 @@ set('user',get_current_user());
 desc('Setup some shit');
 task('setup', [
     'setup:shit',
+    'setup:dependency:check'
     // 'setup:prepare',
     // 'setup:lock',
     // 'setup:release',
@@ -46,6 +49,14 @@ task('setup:shit', function () {
     ');
 });
 
+task('setup:dependency:install-homebrew', function (){
+    run('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"');
+});
+
+task('setup:dependency:install-iterm', function (){
+    run('brew cask install iterm2');
+});
+
 task('setup:dependency:list', function () {
     $dependencies = get('dependencies');
     foreach ($dependencies as $dName => $dValue) {
@@ -55,14 +66,13 @@ task('setup:dependency:list', function () {
 });
 
 task('test', function() {
-    if (run('docker-compose -v')){
+    if (test('[ -e /Applications/iTerm.app/ ]')){
         writeln('trued');
     } else { writeln('falsed');}
 });
 
 task('setup:dependency:install-sublime-text', function() {
-    run('sudo apt update');
-    run('sudo apt install sublime-text');
+    run('brew cask install sublime-text');
 });
 
 task('setup:dependency:install-docker', function() {
@@ -89,8 +99,8 @@ task('setup:dependency:check', function () {
     $dependencies = get('dependencies');
     foreach ($dependencies as $dName => $dValue) {
         # Loop through dependencies and check if exists
-
-        if(test($dValue) || run($dValue.' -v')){
+	$testValue = test('[ -e '.$dValue.' ]');
+        if($testValue || test($dValue.' -v') ){
             writeln($dName.' - Installed');
         }
         else {
