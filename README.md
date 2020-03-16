@@ -25,9 +25,12 @@ Using Safari to install the [Chrome browser](https://www.google.com/chrome/?bran
 
 Open up terminal
 > Install deployer
-```curl -LO https://deployer.org/deployer.phar
+>
+```
+curl -LO https://deployer.org/deployer.phar
 mv deployer.phar /usr/local/bin/dep
-chmod +x /usr/local/bin/dep```
+chmod +x /usr/local/bin/dep
+```
 >
 >
 
