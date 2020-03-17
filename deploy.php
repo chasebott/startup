@@ -9,8 +9,9 @@ $dependencies =
 	'homebrew' => 'brew',
 	'iterm' => '/Applications/iTerm.app',
         'sublime-text' => 'subl',
-        'docker' => 'docker',
-        'docker-compose' => 'docker-compose'
+        // 'docker' => 'docker',
+        // 'docker-compose' => 'docker-compose'
+        'zsh' => 'zsh'
     );
 
 set('dependencies',$dependencies);
@@ -55,6 +56,11 @@ task('setup:dependency:install-homebrew', function (){
 
 task('setup:dependency:install-iterm', function (){
     run('brew cask install iterm2');
+});
+
+task('setup:dependency:install-zsh', function (){
+    run('brew install zsh');
+    run('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"');
 });
 
 task('setup:dependency:list', function () {
