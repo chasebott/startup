@@ -23,6 +23,10 @@ Powerwash
 Setup Apple ID and General Settings.
 Using Safari to install the [Chrome browser](https://www.google.com/chrome/?brand=CHBD&gclid=Cj0KCQjwx7zzBRCcARIsABPRscOuxMr9jQqqJWGJqygimF_Zao-asFA1ydCZrZy4-FRW_ZmzaVwvV90aAh6cEALw_wcB&gclsrc=aw.ds) and login to your Google account.
 
+Install Xcode: https://developer.apple.com/download/
+
+Install Karabiner: https://github.com/pqrs-org/Karabiner-Elements
+
 Open up terminal
 > Install deployer
 >
