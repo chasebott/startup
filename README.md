@@ -1,5 +1,5 @@
 # startup - workspace
-Startup instructions for automated builds.
+Startup instructions for automated builds.<br>
 _This is a template. Workspaces rely on private repositories. Make sure to update hosts.yml to map remote hosts._
 
 ## Requirements
