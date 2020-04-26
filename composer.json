@@ -1,0 +1,16 @@
+{
+  "name":  "chasewoith/bento",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:chasewoith/bento.git"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "chasewoith/recipes": "dev-master"
+  },
+  "require-dev": {
+        "deployer/recipes": "^6.2"
+    }
+}

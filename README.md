@@ -1,54 +1,53 @@
-# startup
+# startup - workspace
 Startup instructions for automated builds.
+_This is a template. Workspaces rely on private repositories. Make sure to update hosts.yml to map remote hosts_
 
-## Choose the OS you'd like to startup
+## Requirements
+Startup an OS (see branches)
 - Mac OSX
 - Chromebook
 - Windows 10
 
-### Mac OSX
-Powerwash
-> Restart Mac and hold `cmd R` on startup
-> 
-> Open "Disk Utility" and click `Continue`
-> 
-> Select "Mac HD" and click `Unmount`
-> 
-> Select "Mac HD" and click `Erase`
-> 
-> `Quit` "Disk Utility"
-> 
-> Open "Reinstall OSX"
+PHP
+Deployer
+Composer
+Git
 
-Setup Apple ID and General Settings.
-Using Safari to install the [Chrome browser](https://www.google.com/chrome/?brand=CHBD&gclid=Cj0KCQjwx7zzBRCcARIsABPRscOuxMr9jQqqJWGJqygimF_Zao-asFA1ydCZrZy4-FRW_ZmzaVwvV90aAh6cEALw_wcB&gclsrc=aw.ds) and login to your Google account.
-
-Install Xcode: https://developer.apple.com/download/
-
-Install Karabiner: https://github.com/pqrs-org/Karabiner-Elements
-
-Open up terminal
-> Install deployer
->
+### Installation
 ```
-curl -LO https://deployer.org/deployer.phar
-sudo mkdir /usr/local/bin
-sudo mv deployer.phar /usr/local/bin/dep
-sudo chmod +x /usr/local/bin/dep
+git clone https://github.com/chasebott/startup.git -b workspace
+composer install
 ```
->
->
 
+### Configuration
+hosts.yml should be the only file you'll need to add/configure to point to to private hosts/repos
+```
+workspace.domain.com:
+    hostname: workspace.domain.com
+    user: user
+    port: ###
+    identityFile: path/to/key
+    stage: stage
+    deploy_path: ~/Sites/{{project}}
+    # Tugboat repository is public. Swap out for private {{boat}} repos for specific env files.
+    repository: https://vcs.com/organization/boat.git
+    name: stage
+container.domain.com:
+    hostname: container.domain.com
+    user: user
+    port: ###
+    identityFile: path/to/key
+    stage: container
+    # Add parameters as needed. Examples: roles, keep_releases, deploy_mode
+    roles: demo
+    keep_releases: 2
+    deploy_path: /var/www/html
+    deploy_mode: developer
+    repository: https://vcs.com/organization/application.git
+    name: container
+```
 
-### Chromebook
-Powerwash and set up account.
+### Use
+_This branch requires access to private repositories. Those repositories contain further instruction_
 
-Install linux (Debian 9) via settings menu.
-
-run `sudo apt install php-fpm php` to install PHP
-
-> install deployer
-> 
-> git clone startup (this repo) -b OperatingSystem
-> 
-> run `dep startup`
+Deployer: https://deployer.org/docs/getting-started.html
