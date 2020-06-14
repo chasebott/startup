@@ -9,6 +9,7 @@ require 'vendor/chasewoith/recipes/slack/slack.php';
 // Application and Project name
 set('application', 'workspace');
 set('project', 'new');
+set('default_timeout', 3600);
 
 // Project repository
 set('repository', 'https://github.com/bryanlittlefield/TUGBOAT.git');
