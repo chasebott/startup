@@ -3,6 +3,7 @@ namespace Deployer;
 
 require 'recipe/common.php';
 require 'vendor/chasewoith/recipes/magento/magento.php';
+require 'vendor/chasewoith/recipes/woo/woo.php';
 require 'vendor/chasewoith/recipes/tugboat/tugboat.php';
 require 'vendor/chasewoith/recipes/slack/slack.php';
 
