@@ -9,13 +9,19 @@ _This is a template. Workspaces rely on private repositories. Make sure to updat
 - Composer
 - Git
 
-### Installation
+### Dev Box
+Any standard Linux box with root access and docker-compose installed. DigitalOcean is a recommended provider - _some composer installations may require swap memory to successfully complete. *Make sure to check linux version for proper installation methods_
+- Docker Compose: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+- Swap Memory: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04
+
+
+## Installation
 ```
 git clone https://github.com/chasebott/startup.git -b workspace
 composer install
 ```
 
-### Configuration
+## Configuration
 hosts.yml should be the only file you'll need to add/configure to point to to private hosts/repos
 ```
 workspace.domain.com:
@@ -45,7 +51,7 @@ container.domain.com:
     name: container
 ```
 
-### Use
+## Use
 _This branch requires access to private repositories. Those repositories contain further instruction._
 
 Deployer: https://deployer.org/docs/getting-started.html
